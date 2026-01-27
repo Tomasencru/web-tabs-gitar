@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Gear Setup | Alwandhiya Tabs</title>
+    <style>
+        /* --- 1. RESET & DASAR (Gaming Style) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* --- 2. NAVIGATION BAR --- */
+        nav {
+            background-color: #111;
+            border-bottom: 2px solid #ff0033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .logo span { color: #ff0033; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: #ff0033;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* --- 3. HEADER --- */
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(180deg, #161616 0%, #0a0a0a 100%);
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* --- 4. GEAR GRID SYSTEM (Inventory Style) --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .gear-grid {
+            display: grid;
+            /* Membuat kolom otomatis: minimal lebar 300px, kalau muat nambah kolom */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Styling Kartu Gear */
+        .gear-card {
+            background-color: #161616;
+            border: 1px solid #333;
+            border-radius: 12px;
+            overflow: hidden; /* Supaya gambar gak keluar dari kotak */
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .gear-card:hover {
+            transform: translateY(-10px); /* Naik sedikit pas di-hover */
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+            border-color: #ff0033;
+        }
+
+        /* Styling Gambar di Dalam Kartu */
+        .gear-image-box {
+            width: 100%;
+            height: 250px; /* Tinggi gambar tetap biar rapi */
+            background-color: #222;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-bottom: 1px solid #333;
+        }
+
+        .gear-image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Gambar akan dipotong rapi memenuhi kotak (zoom-crop) */
+            transition: 0.5s;
+        }
+
+        /* Efek Zoom Gambar saat Hover */
+        .gear-card:hover .gear-image-box img {
+            transform: scale(1.1);
+        }
+
+        /* Styling Teks Info */
+        .gear-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .gear-category {
+            color: #ff0033;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .gear-name {
+            font-size: 1.25rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Guitar<span>Tabs</span></div>
+        <ul>
+            <li><a href="Beranda.html">Home</a></li>
+            <li><a href="Difficulty.html">Difficulty</a></li>
+            <li><a href="Guides.html">Guides</a></li>
+            <li><a href="my-ratings.html">My Ratings</a></li>
+            <li><a href="my-gear.html">My Gear</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>My Gear & Setup</h1>
+        <p>The equipment I use for recording and playing</p>
+    </header>
+
+    <div class="container">
+        <div class="gear-grid">
+
+            <div class="gear-card">
+                <div class="gear-image-box">
+                    <img src="picture/guitar.jpg" alt="Bromo BAT2CE Guitar">
+                </div>
+                <div class="gear-info">
+                    <span class="gear-category">Acoustic Guitar</span>
+                    <h3 class="gear-name">Bromo BAT2CE</h3>
+                </div>
+            </div>
+
+            <div class="gear-card">
+                <div class="gear-image-box">
+                    <img src="picture/audio.jpg" alt="Behringer UMC22">
+                </div>
+                <div class="gear-info">
+                    <span class="gear-category">Audio Interface</span>
+                    <h3 class="gear-name">Behringer UMC22</h3>
+                </div>
+            </div>
+
+            <div class="gear-card">
+                <div class="gear-image-box">
+                    <img src="picture/mic.jpg" alt="Samson Q2U">
+                </div>
+                <div class="gear-info">
+                    <span class="gear-category">Microphone</span>
+                    <h3 class="gear-name">Samson Q2U</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>

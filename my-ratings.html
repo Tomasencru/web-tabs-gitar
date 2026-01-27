@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Ratings | Alwandhiya Tabs</title>
+    <style>
+        /* --- 1. RESET & DASAR (Gaming Style) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        /* --- 2. NAVIGATION BAR --- */
+        nav {
+            background-color: #111;
+            border-bottom: 2px solid #ff0033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .logo span { color: #ff0033; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: #ff0033;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* --- 3. HEADER --- */
+        header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: linear-gradient(180deg, #161616 0%, #0a0a0a 100%);
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* --- 4. REVIEW CARDS --- */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .review-card {
+            background-color: #161616;
+            border: 1px solid #333;
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 3rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Efek garis merah di kiri kartu */
+        .review-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 4px;
+            height: 100%;
+            background: #333;
+            transition: 0.3s;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            border-color: #ff0033;
+        }
+
+        .review-card:hover::before {
+            background: #ff0033;
+        }
+
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .review-header h3 {
+            font-size: 1.5rem;
+            color: #fff;
+        }
+
+        .score-badge {
+            background: #ff0033;
+            color: #fff;
+            font-weight: bold;
+            padding: 5px 15px;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255, 0, 51, 0.4);
+        }
+
+        .review-content p {
+            margin-bottom: 1rem;
+            color: #ccc;
+            text-align: justify;
+        }
+
+        /* Styling Tooltip (Abbr) */
+        abbr {
+            text-decoration: none;
+            border-bottom: 1px dotted #ff0033;
+            color: #fff;
+            cursor: help;
+        }
+
+        /* --- 5. MEDIA CONTAINER --- */
+        .media-center {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .media-label {
+            margin-bottom: 10px;
+            color: #ff0033;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        iframe {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+
+        /* --- LINK PREVIEW CARD (Dark Mode) --- */
+        .link-preview {
+            border: 1px solid #333;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 320px;
+            overflow: hidden;
+            background-color: #222;
+            transition: 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .link-preview:hover {
+            border-color: #ff0033;
+            box-shadow: 0 0 15px rgba(255, 0, 51, 0.2);
+        }
+
+        .preview-image {
+            position: relative;
+        }
+
+        .play-icon {
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0,0,0,0.7);
+            color: #ff0033;
+            width: 40px; height: 40px;
+            display: flex;
+            align-items: center; justify-content: center;
+            border-radius: 50%;
+            font-size: 20px;
+            border: 1px solid #ff0033;
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Guitar<span>Tabs</span></div>
+        <ul>
+            <li><a href="Beranda.html">Home</a></li>
+            <li><a href="Difficulty.html">Difficulty</a></li>
+            <li><a href="Guides.html">Guides</a></li>
+            <li><a href="my-ratings.html">My Ratings</a></li>
+            <li><a href="my-gear.html">My Gear</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>My Reviews & Rankings</h1>
+        <p>Personal analysis of fingerstyle arrangements</p>
+    </header>
+
+    <div class="container">
+
+        <article class="review-card">
+            <div class="review-header">
+                <h3>1. Blue - Yung Kai</h3>
+                <span class="score-badge">10/10</span>
+            </div>
+            
+            <div class="review-content">
+                <p>This song is not for beginners i know, but the thing is if you play this song on guitar, it's just beautiful. It's dynamic between lower range frequencies sound to high frequencies sound is just perfect. I suggest you to listen to Eddie Van Der Meer's cover of this song on YouTube, it's just amazing. The Difficulty is above my own arrangements, it around 9 - 9.5.</p>
+
+                <p>I don't recommend you to play his arrangements if you are planning to change your open strings tunings frequently to standard tuning since it's on <abbr title="B F# B F# B D#"><b>Open B Tuning</b></abbr>, which is too far away from <abbr title="E A D G B E"><b>Standard Tuning</b></abbr>. I suggested not to because it will eventually age your strings faster than it has to be since you went back and forth.</p>
+
+                <p>My Arrangement is not that far from standard tuning, just tune you B string up and your E string up once <abbr title="F A D G C E">Custom Tuning</abbr>. It's closer to Ed's arrangements since i made it purposely sounds like Ed's arrangements.</p>
+            </div>
+
+            <div class="media-center">
+                <div class="media-label">Ed's Arrangement Video</div>
+                <iframe 
+                    width="560" 
+                    height="315" 
+                    src="https://www.youtube.com/embed/-kPs1aElgDY" 
+                    title="YouTube video player" 
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </article>
+
+        <article class="review-card">
+            <div class="review-header">
+                <h3>2. I Don't Care - Ed Sheeran</h3>
+                <span class="score-badge">9.6/10</span>
+            </div>
+
+            <div class="review-content">
+                <p>This song is also not for beginners since there are so many techniques that you should learn before you jump to this song. The Tunings are <abbr title="D A D F# A D">Open D</abbr>. It's not good if you are planning to change your open strings tunings frequently to standard tuning since it's on <abbr title="D A D F# A D"><b>Open D Tuning</b></abbr>, which is too far away from <abbr title="E A D G B E"><b>Standard Tuning</b></abbr>.</p>
+                
+                <p>But if you have a second guitar, you can dedicate that guitar to be tuned on open D tuning permanently so you don't have to retune it everytime you want to play this song.</p>
+
+                <p>Originally arranged by Eddie Van Der Meer, and i don't have any of my own arrangement of this song.</p>
+
+                <p>This song reminds me back at 2019 when my parents arent home... I remember playing this song on repeat for the whole week using my accoustic guitar while doing my homework, and it was just so relaxing. I don't mind how difficult this song is, i just learned it in 6 days and boom, i was able to play it.</p>
+            
+                <h4 style="text-align: center;">Ed's Arrangement Video</h4>
+            </div>
+
+            <div class="media-center">
+                <a href="https://www.youtube.com/watch?v=C1azs50n5r0" target="_blank" class="link-preview">
+                    <div class="preview-image">
+                        <img src="https://img.youtube.com/vi/C1azs50n5r0/maxresdefault.jpg" style="width: 100%; display: block;">
+                        <div class="play-icon">▶</div>
+                    </div>
+                    <div style="padding: 15px;">
+                        <h4 style="margin: 0; font-size: 16px; color: #fff;">Ed Sheeran & Justin Bieber - I Don't Care</h4>
+                        <p style="margin: 5px 0 0; color: #aaa; font-size: 14px;">Eddie van der Meer • Fingerstyle Guitar</p>
+                    </div>
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+</body>
+</html>

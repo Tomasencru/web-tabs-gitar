@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Difficulty Tier List | Alwandhiya Tabs</title>
+    <style>
+        /* --- 1. RESET & DASAR (Sama seperti Beranda) --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: #e0e0e0;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* --- 2. NAVIGATION BAR --- */
+        nav {
+            background-color: #111;
+            border-bottom: 2px solid #ff0033;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.2);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #fff;
+        }
+        .logo span { color: #ff0033; }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            transition: 0.3s;
+            padding: 5px 10px;
+        }
+
+        nav a:hover {
+            color: #ff0033;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 4px;
+        }
+
+        /* --- 3. HEADER --- */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(180deg, #161616 0%, #0a0a0a 100%);
+        }
+
+        h1 {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .info-box {
+            background: rgba(255, 0, 51, 0.1);
+            border-left: 4px solid #ff0033;
+            display: inline-block;
+            padding: 10px 20px;
+            text-align: left;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* --- 4. TABLE STYLING (Gaming Grid) --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Agar tabel bisa di-scroll di HP */
+        .table-wrapper {
+            overflow-x: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #161616;
+            min-width: 800px; /* Lebar minimum agar tidak gepeng */
+        }
+
+        /* Header Tabel */
+        thead tr {
+            background-color: #222;
+            border-bottom: 2px solid #ff0033;
+        }
+
+        th {
+            padding: 15px;
+            text-align: left;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            color: #ff0033; /* Judul kolom merah */
+        }
+
+        /* Isi Tabel */
+        td {
+            padding: 15px;
+            border-bottom: 1px solid #333;
+            font-size: 0.95rem;
+            color: #ccc;
+        }
+
+        /* Efek Hover Baris (Highlight) */
+        tbody tr {
+            transition: 0.2s;
+        }
+
+        tbody tr:hover {
+            background-color: #1f1f1f;
+            /* Efek glow merah di sisi kiri */
+            box-shadow: inset 4px 0 0 #ff0033; 
+        }
+
+        /* Styling Khusus Kolom */
+        .difficulty-score {
+            font-weight: bold;
+            color: #fff;
+            background: #333;
+            padding: 4px 8px;
+            border-radius: 4px;
+            text-align: center;
+            display: inline-block;
+            min-width: 40px;
+        }
+
+        /* Styling Tooltip (Abbr) */
+        abbr {
+            text-decoration: none;
+            border-bottom: 1px dotted #ff0033;
+            cursor: help;
+            color: #fff;
+        }
+
+        /* Tombol Download */
+        .btn-download {
+            display: inline-block;
+            background-color: transparent;
+            border: 1px solid #ff0033;
+            color: #ff0033;
+            padding: 6px 12px;
+            text-decoration: none;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .btn-download:hover {
+            background-color: #ff0033;
+            color: #fff;
+            box-shadow: 0 0 10px rgba(255, 0, 51, 0.6);
+        }
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Alwandhiya's <span>Guitar Tabs</span></div>
+        <ul>
+            <li><a href="Beranda.html">Home</a></li>
+            <li><a href="Difficulty.html">Difficulty</a></li>
+            <li><a href="Guides.html">Guides</a></li>
+            <li><a href="my-ratings.html">My Ratings</a></li>
+            <li><a href="my-gear.html">My Gear</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Difficulty Tier List</h1>
+        <p>Comparison table of all available tabs</p>
+        
+        <div class="info-box">
+            <p><i><b>NOTE:</b></i> Levels are rated 1-10 based on my experience since <b>Nov 2018</b>.</p>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="table-wrapper">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Song Name</th>
+                        <th>Artist</th>
+                        <th>Model</th>
+                        <th>Difficulty</th>
+                        <th>Time to Learn</th>
+                        <th>Tunings</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">I Don't Care</td>
+                        <td>Ed-Sheeran & Justin Bieber</td>
+                        <td>Acoustic</td>
+                        <td><span class="difficulty-score">6.5</span></td>
+                        <td>1 Week</td>
+                        <td><abbr title="D A D F# A D">Open D</abbr></td>
+                        <td><a href="tabs/I-Dont-Care.pdf" class="btn-download" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Unravel</td>
+                        <td>TK from Ling Tosite Sigure</td>
+                        <td>Acoustic</td>
+                        <td><span class="difficulty-score">8.0</span></td>
+                        <td>2 Weeks</td>
+                        <td><abbr title="E A D G B E">Standard</abbr></td>
+                        <td><a href="tabs/Unravel_Full_Version_Tokyo_Ghoul_OP1.pdf" class="btn-download" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Playing God</td>
+                        <td>Polyphia</td>
+                        <td>Acoustic</td>
+                        <td><span class="difficulty-score" style="color:#ff0033">10.0</span></td>
+                        <td>1 Month</td>
+                        <td><abbr title="E A D G B E">Standard</abbr></td>
+                        <td><a href="tabs/Playing-God.pdf" class="btn-download" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Blue</td>
+                        <td>Yung Kai</td>
+                        <td>Acoustic</td>
+                        <td><span class="difficulty-score">8.5</span></td>
+                        <td>3 Weeks</td>
+                        <td><abbr title="F A D G C E">Custom Tuning</abbr></td>
+                        <td><a href="tabs/Blue.pdf" class="btn-download" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Payphone</td>
+                        <td>Maroon 5</td>
+                        <td>Acoustic</td>
+                        <td><span class="difficulty-score">8.5</span></td>
+                        <td>2 Weeks</td>
+                        <td><abbr title="F A D G C E">Custom Tuning</abbr></td>
+                        <td><a href="tabs/payphonme.pdf" class="btn-download" download>Download</a></td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; color: #fff;">Untuk Perempuan...</td>
+                        <td>Payung Teduh</td>
+                        <td>Acoustic</td>
+                        <td><span class="difficulty-score" style="color: #4caf50;">3.0</span></td>
+                        <td>1 - 4 Days</td>
+                        <td><abbr title="E A D G B E">Standard</abbr></td>
+                        <td><a href="tabs/I-Dont-Care.pdf" class="btn-download" download>Download</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>
